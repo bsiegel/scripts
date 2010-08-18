@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ $# -ne 1 ]
+then
+  echo "Usage: `basename $0` listen-port"
+  exit 85
+fi
+if which pv >/dev/null; then
+  nc -l -p $1 | pv | tar xzf - -C .
+else
+  nc -l -p $1 | tar xzf - -C .
+fi

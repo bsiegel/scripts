@@ -1,0 +1,1 @@
+%FrameworkDir%v2.0.50727\msbuild.exe %* /p:MSBuildToolsPath=%FrameworkDir%v2.0.50727 /p:TargetFX1_1=true /p:CustomAfterMicrosoftCommonTargets="%ProgramFiles(x86)%\MSBuild\MSBee\MSBuildExtras.Fx1_1.CSharp.targets"

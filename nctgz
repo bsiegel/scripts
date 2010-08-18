@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ $# -ne 3 ]
+then
+  echo "Usage: `basename $0` file-spec remost-host remote-port"
+  exit 85
+fi
+
+if which pv >/dev/null; then
+  tar czf - $1 | pv -s $(du -sb $1 | awk '{print $1}') | nc -w1 $2 $3
+else
+  tar czf - $1 | nc -w1 $2 $3
+fi
