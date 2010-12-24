@@ -1,0 +1,71 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* Remove button shape and place in the location bar */
+#urlbar-container + #feed-button,
+#urlbar-container + #reload-button + #stop-button + #feed-button {
+  -moz-appearance: none !important;
+  border: 0 !important;
+  background: rgba(255,255,255,0.0) !important;
+  box-shadow: white -10px 0 7px -2px !important;
+  padding: 0 0 0 0px !important;
+  margin: 4px 42px 4px -60px !important;
+  position: fixed !important;
+  z-index: 1 !important;
+}
+#urlbar-container + #reload-button + #stop-button + #feed-button {
+  margin: 4px 64px 4px -82px !important;
+}
+
+/* Hover effect */
+#urlbar-container + #feed-button:not(:hover) > image,
+#urlbar-container + #reload-button + #stop-button + #feed-button:not(:hover) > image {
+  opacity: 0.5;
+}
+#urlbar-container + #feed-button:not([disabled="true"]):not(:active):hover > image,
+#urlbar-container + #reload-button + #stop-button + #feed-button:not([disabled="true"]):not(:active):hover > image {
+  -moz-transition: opacity .3s ease-in;
+}
+
+/* Hide when no feeds */
+#urlbar-container + #feed-button[disabled="true"],
+#urlbar-container + #reload-button + #stop-button + #feed-button[disabled="true"] {
+  display: none !important;
+}
+
+/* Hide when showing link preview */
+#urlbar {
+  position: relative !important;
+  z-index: 0 !important;
+}
+#urlbar[overlinkstate]:not([overlinkstate="fade-out"]) {
+  z-index: 2 !important;
+  background: white !important;
+}
+
+/* Put tabs into title bar when in fullscreen */
+#main-window[sizemode="maximized"] #toolbar-menubar{
+    padding-left: 110px !important;
+    margin-right: 110px !important;
+    padding-top: 8px !important;
+    margin-top: -30px !important;
+}
+
+#main-window[sizemode="maximized"] #appmenu-button-container{
+    position: fixed !important;
+}
+
+#appmenu-button-container{
+    padding-bottom: 12px !important;
+}
+
+#main-window[sizemode="maximized"] #navigator-toolbox[tabsontop="false"] #nav-bar{
+    margin-left: 108px !important;
+    margin-right: 140px !important;
+    padding-top: 12px !important;
+}
+
+#main-window[sizemode="maximized"] #navigator-toolbox[tabsontop="true"] #TabsToolbar{
+    margin-left: 101px !important;
+    margin-right: 140px !important;
+    padding-top: 10px !important;
+}
